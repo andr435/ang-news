@@ -3,7 +3,7 @@
  */
 'use strict';
 
-app.controller('NavCtrl', function($scope, $location, Post){
+app.controller('NavCtrl', function($scope, $location, Auth, Post){
    $scope.post =  {
        url: 'http//',
        title: ''
@@ -18,4 +18,7 @@ app.controller('NavCtrl', function($scope, $location, Post){
             };
         });
     };
+
+    $scope.signedIn = Auth.signedIn;
+    $scope.logout = Auth.logout;
 });

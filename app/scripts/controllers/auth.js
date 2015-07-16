@@ -3,8 +3,8 @@
  */
 'use strict';
 
-app.controller('AuthCtrl', function($scope, $location, Auth, user){
-    if (user){
+app.controller('AuthCtrl', function ($scope, $location, Auth, user) {
+    if (user) {
         $location.path('/');
     }
 
@@ -13,6 +13,18 @@ app.controller('AuthCtrl', function($scope, $location, Auth, user){
            return Auth.login($scope.user).then(function(){
                $location.path('/');
            });
+        }, function(error){
+            $scope.error = error.toString();
         });
     };
+
+    $scope.login = function(){
+        Auth.login($scope.user).then(function(){
+            $location.path('/');
+        },
+        function(error){
+            $scope.error = error.toString();
+        });
+    };
+
 });
