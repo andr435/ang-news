@@ -26,13 +26,11 @@ var app = angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/posts.html',
-        controller: 'PostsCtrl',
-        controllerAs: 'main'
+        controller: 'PostsCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/posts/:postId', {
+        templateUrl: 'views/showpost.html',
+        controller: 'PostViewCtrl'
       })
       .otherwise({
         redirectTo: '/'
